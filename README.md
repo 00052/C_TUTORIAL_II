@@ -1,20 +1,20 @@
 # C Tutorial II
 
 ## 参考文档
+
 [GCC online documentation](https://gcc.gnu.org/onlinedocs/)
+
 [MSVS 2017 Organization of the C Language Reference](https://docs.microsoft.com/en-us/cpp/c-language/organization-of-the-c-language-reference?view=vs-2017)
 
 ## 说明
 最近看到Github上各种语言的基础教程和引导，对于初学者来说，真的是入门过坑少走弯路的理想学习资源。所以我也插个队，来凑凑热闹，在这里做一些总结，希望这些引导能让刚入门的同学有一个快速的提高过程。
 
-如你所愿，《C Tutorial I》是不存在的，还没有入门的同学可能不太适合看这个教程，建议先补习以下基础。
-
-这篇教程从编译器讲起，我会尽可能使用精简的语言进行讲解，分享更多的干货，更偏重实用性和整体知识脉络的把握，对于细节可参考上述实现文档。
+如你所愿，《C Tutorial I》是不存在的，还没有入门的同学可能不太适合看这个教程，建议先补习以下基础。这篇教程从编译器讲起，我会尽可能使用精简的语言进行讲解，分享更多的干货，更偏重实用性和整体知识脉络的把握，对于细节可参考上述实现文档。
 
 由于本人能力有限，对C的掌握还不够精深。如果在阅读中发现错误或疏漏，欢迎提交ISSUE。
 
 ## 编译器(Compiler)
-通常我们使用的C编译器有三种
+通常我们使用的C编译器有三个
 
 * *Visual Studio(MSVC)系列*  
   由Microsoft开发的基于Win32的闭源编译器实现
@@ -91,7 +91,7 @@ Hello world
 printf函数在其声明的作用下成功定向到了C库printf函数实现的入口地址。
 
 ### 编译(rompile)
-将上一步产生的预处理文件 hello.i 进行编译
+将上一步骤产生的预处理文件 hello.i 进行编译
 ```sh
 $ gcc -S hello.i
 ```
@@ -163,7 +163,7 @@ main:
 	.ident	"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.10) 5.4.0 20160609"
 	.section	.note.GNU-stack,"",@progbits
 ```
-*掌握i386处理器及其64位扩展汇编应该是是一个C程序员基本的技能要求*
+*掌握i386处理器及其64位扩展汇编应该是一个C程序员基本的技能要求*
 
 很显然，printf函数调用，在编译优化过程中被替换为执行效率更高的puts函数，汇编程序在此不做过多解释，存在阅读困难的同学，可以自行学习一下相关内容。其中一行关键指令`.globl  main`，随后我们会用到，.global 是一个汇编器伪指令，用来标明将main函数首地址以符号形式导出（或理解为暴露），以便被其他模块调用。
 ### 汇编 (assemble)
